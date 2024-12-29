@@ -1,12 +1,16 @@
 from flask import Flask
 import os
-from app import create_app
+from app.apis import api_blueprint
+from app.views import views_blueprint
 
-app = create_app()
-
+#app = create_app()
+app = Flask(__name__, static_folder="app/static", template_folder="app/templates")
+app.register_blueprint(api_blueprint)
+app.register_blueprint(views_blueprint)
 
 if __name__ == "__main__":
-    print("Registered Routes:", app.url_map)
+    
+    print("Static Folder:", app.static_folder)
     port = int(os.environ.get("PORT", 5000))
     app.jinja_env.auto_reload = True
     app.config["TEMPLATES_AUTO_RELOAD"] = True
