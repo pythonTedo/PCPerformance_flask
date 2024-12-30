@@ -9,8 +9,7 @@ pipeline {
         stage('Check if python exists') {
             steps {
                 script {
-                    whoami()
-                    
+
                     def pythonInstalled = sh(script: "python --version", returnStatus: true)
                     if (pythonInstalled != 0) {
                         echo "Python is not installed"
