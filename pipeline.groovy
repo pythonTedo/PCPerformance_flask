@@ -1,20 +1,15 @@
 pipeline {
     agent any
+    environment {
+        FLASK_ENV = "developement"
+        FLASK_APP = "src/app.py"
+    }
     stages {
-        stage('Build') {
+        stage('Check if python exists') {
             steps {
-                echo 'Building..'
+                sh 'python --version'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+
     }
 }
