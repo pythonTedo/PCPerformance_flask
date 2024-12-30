@@ -9,6 +9,7 @@ pipeline {
         stage('Check if python exists') {
             steps {
                 sh 'python3.11 --version'
+                sh 'docker ps'
             }
         }
     }
