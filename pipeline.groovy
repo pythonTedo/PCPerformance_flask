@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.11'
-        }
-    }
+    agent { label 'host-agent' }
     environment {
         PYTHON_VERSION = "3.11"
         FLASK_ENV = "developement"
@@ -15,6 +11,5 @@ pipeline {
                 sh 'python3.11 --version'
             }
         }
-
     }
 }
