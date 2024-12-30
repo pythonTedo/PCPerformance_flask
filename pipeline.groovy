@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.11'
+        }
+    }
     environment {
         PYTHON_VERSION = "3.11"
         FLASK_ENV = "developement"
@@ -8,15 +12,7 @@ pipeline {
     stages {
         stage('Check if python exists') {
             steps {
-                script {
-
-                    def pythonInstalled = sh(script: "python3.11 --version", returnStatus: true)
-                    if (pythonInstalled != 0) {
-                        echo "Python is not installed"
-                        currentBuild.result = 'FAILURE'
-                        error("Python is not installed")
-                    }
-                }
+                sh 'python3.11 --version'
             }
         }
 
