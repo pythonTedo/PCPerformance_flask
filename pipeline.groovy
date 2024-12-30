@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
 
-                    def pythonInstalled = sh(script: "python --version", returnStatus: true)
+                    def pythonInstalled = sh(script: "python3.11 --version", returnStatus: true)
                     if (pythonInstalled != 0) {
                         echo "Python is not installed"
                         currentBuild.result = 'FAILURE'
