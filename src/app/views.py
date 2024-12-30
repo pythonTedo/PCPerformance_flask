@@ -10,7 +10,7 @@ views_blueprint = Blueprint("views", __name__, template_folder="templates", stat
 @views_blueprint.route("/")
 @views_blueprint.route("/home")
 def index():
-    return render_template("base.html")
+    return render_template("index.html")
 
 
 @views_blueprint.route("/info")
