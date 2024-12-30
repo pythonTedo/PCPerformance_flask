@@ -8,6 +8,7 @@ pipeline {
         stage('Check if python exists') {
             steps {
                 sh 'python --version'
+                sh 'pip --version'
             }
         }
 
