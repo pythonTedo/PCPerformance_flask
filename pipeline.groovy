@@ -16,7 +16,7 @@ pipeline {
                 script {
                     sh '''
                         bash -c "
-                        pyhton3.11 -m venv ${SRC_DIR}/venv
+                        python3.11 -m venv ${SRC_DIR}/venv
                         source ${SRC_DIR}/venv/bin/activate
                         pip install -r ${SRC_DIR}/requirements.txt
                         "
