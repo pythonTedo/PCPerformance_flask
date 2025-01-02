@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     sh 'python3.11 -m venv ${SRC_DIR}/venv'
-                    sh 'source venv/bin/activate'
+                    sh 'source ${SRC_DIR}/venv/bin/activate'
                     sh 'pip install -r requirements.txt'
                 }
             }
