@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git bransh 'main', url: 'https://github.com/pythonTedo/PCPerformance_flask.git'
+                git 'https://github.com/pythonTedo/PCPerformance_flask.git'
             }
         }
         stage('Check if python exists and docker exists') {
