@@ -14,7 +14,9 @@ pipeline {
         stage('Prepare venv') {
             steps {
                 script {
+                    sh 'whoami'
                     sh 'python3.11 -m venv ${SRC_DIR}/venv'
+                    sh 'sleep 5'
                     sh 'source ${SRC_DIR}/venv/bin/activate'
                     sh 'pip install -r requirements.txt'
                 }
