@@ -9,7 +9,7 @@ help: ## Show this help message
 
 test: ## Run tests
 	echo "Running tests"
-	. ../venv/bin/activate && pytest -v
+	pytest -v
 	
 test-report: ## Run tests and generate report
 	. ../venv/bin/activate && pytest --junitxml=report.xml
