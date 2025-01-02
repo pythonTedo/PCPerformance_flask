@@ -19,7 +19,7 @@ pipeline {
                         bash -c "
                         python3.11 -m venv ${SRC_DIR}/venv
                         source ${SRC_DIR}/venv/bin/activate
-                        pip install -r ${SRC_DIR}/requirements.txt
+                        pip install -r requirements.txt
                         "
                         '''
                 }
@@ -39,6 +39,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up workspace'
+            cleanWs()
             
         }
     }
