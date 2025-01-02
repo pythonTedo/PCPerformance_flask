@@ -6,6 +6,11 @@ pipeline {
         SRC_DIR = "src"
     }
     stages {
+        stage('Checkout') {
+            steps {
+                git bransh 'main', url: 'https://github.com/pythonTedo/PCPerformance_flask.git'
+            }
+        }
         stage('Check if python exists and docker exists') {
             steps {
                 sh 'python3.11 --version'
