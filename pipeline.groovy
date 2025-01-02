@@ -14,11 +14,13 @@ pipeline {
         stage('Prepare venv') {
             steps {
                 script {
-                    sh 'pwd'
-                    sh 'python3.11 -m venv ${SRC_DIR}/venv && sleep 5'
-                    sh '. ${SRC_DIR}/venv/bin/activate'
-                    sh 'python3.11 -m pip install --upgrade pip'
-                    sh 'pip install -r requirements.txt'
+                    sh '''
+                        bash -c "
+                        pyhton3.11 -m venv ${SRC_DIR}/venv
+                        source ${SRC_DIR}/venv/bin/activate
+                        pip install -r ${SRC_DIR}/requirements.txt
+                        "
+                        '''
                 }
             }
         }
@@ -31,6 +33,12 @@ pipeline {
             steps {
                 sh 'deactivate; rm -rf ${SRC_DIR}/venv'
             }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up workspace'
+            cleanWs()
         }
     }
 }
