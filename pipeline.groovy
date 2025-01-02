@@ -30,11 +30,6 @@ pipeline {
                 sh 'make test'
             }
         }
-        stage('Clean environment') {
-            steps {
-                sh 'deactivate; rm -rf ${SRC_DIR}/venv'
-            }
-        }
     }
     post {
         always {
